@@ -1,0 +1,78 @@
+{% extends 'layout2.html' %}
+
+{% load static %}
+
+{% block meta %}
+<title>Profile {{user.username}}</title>
+<meta name="decription" content="Opus Profile Page" />
+<meta name="keywords" content="" />
+<meta name="author" content="Opus Online" />
+{% endblock %}
+
+
+
+{% block body %}
+
+ <section class="section-hero overlay inner-page bg-image" style="background-image: url('images/hero_1.jpg');" id="home-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h1 class="text-white font-weight-bold">{{user.first_name}}'s Profile</h1>
+            <div class="custom-breadcrumbs">
+              <a href="{% url 'home_page' %}">Home</a> <span class="mx-2 slash">/</span>
+              <span class="text-white"><strong>Profile</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+ </section>
+
+<section class="site-section">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="detailstext text-center">
+                    <img src="{{user.resume.image.url}}" height="150" alt="" class="d-block mx-auto shadow rounded-pill mb-4 ">
+                    <h5 class="text-dark mb-2">{{user.first_name}} {{user.last_name}}</h5>
+                    <p class="text-dark-50 h6 mb2">{{user.username}} | {{user.email}}</p>
+
+
+                    <div class="footer-social">
+                      <a href="#"><span class="icon-facebook"></span></a>
+                      <a href="#"><span class="icon-twitter"></span></a>
+                      <a href="#"><span class="icon-instagram"></span></a>
+                      <a href="#"><span class="icon-linkedin"></span></a>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="owl-wrapper rounded shadow bj-light">
+                    <div class="p-4 border-bottom">
+                        <h4 class="title mb-0">What do you want to do?</h4>
+                    </div>
+
+                    <div class="p-4 mt-10 mb-10">
+                        {% if user.resume %}
+                        <p><a href="{% url 'resume-detail' user.resume.slug %}" class="btn btn-outline-info btn-block">View Resume</a></p>
+                        {% else %}
+                        <p><a href="{% url 'create-resume' %}" class="btn btn-outline-primary btn-block">Create Resume</a></p>
+                        {% endif %}
+                        <p><a href="{% url 'job-list' %}" class="btn btn-outline-success btn-block">Search for Jobs</a></p>
+                        <p><a href="{% url 'create-job' %}" class="btn btn-outline-success btn-block">Post a Job</a></p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
