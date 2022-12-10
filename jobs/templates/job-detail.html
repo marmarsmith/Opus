@@ -1,0 +1,152 @@
+{% extends 'layout2.html' %}
+
+{% load static %}
+
+{% block meta %}
+<title>{{object.title}}</title>
+<meta name="decription" content="{{object.seeDescription}}" />
+<meta name="keywords" content="{{object.seeKeywords}}" />
+<meta name="author" content="Opus Online" />
+
+<meta property="og:title" content="{{object.title}}">
+<meta property="og:site_name" content="Opus">
+<meta property="og:url" content="{% url 'job-detail' object.slug %}}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="#">
+<meta property="og:email" content="#">
+<meta property="og:description" content="{{object.seeDescription}}">
+
+
+{% endblock %}
+
+
+
+{% block body %}
+
+
+
+    <!-- HOME -->
+    <section class="section-hero overlay inner-page bg-image" style="background-image: url('images/hero_1.jpg');" id="home-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h1 class="text-white font-weight-bold">{{object.title}}</h1>
+            <div class="custom-breadcrumbs">
+              <a href="{% url 'home_page' %}">Home</a> <span class="mx-2 slash">/</span>
+              <a href="{% url 'job-list' %}">Jobs</a> <span class="mx-2 slash">/</span>
+              <span class="text-white"><strong>{{object.title}}</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="site-section">
+      <div class="container">
+        <div class="row align-items-center mb-5">
+          <div class="col-lg-8 mb-4 mb-lg-0">
+            <div class="d-flex align-items-center">
+              <div class="border p-2 d-inline-block mr-3 rounded">
+                <img src="{{object.company.companyLogo.url}}" alt="Image" class="img-fluid">
+              </div>
+              <div>
+                <h2>{{object.title}}</h2>
+                <div>
+                  <span class="ml-0 mr-2 mb-2"><span class="icon-briefcase mr-2"></span>Company: {{object.company}}</span>
+                  <span class="m-2"><span class="icon-room mr-2"></span>Location: {{object.location}}</span>
+                  <span class="m-2"><span class="icon-clock-o mr-2"></span><span class="text-primary">Type: {{object.type}}</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="row">
+              <div class="col-6">
+                <a href="#" class="btn btn-block btn-light btn-md"><span class="icon-heart-o mr-2 text-danger"></span>Save Job</a>
+              </div>
+              <div class="col-6">
+                <a href="{{object.urlLink}}" class="btn btn-block btn-primary btn-md">Apply Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+              <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-book mr-3"></span>Summary</h3>
+              <ul class="list-unstyled m-0 p-0">
+                <li class="d-flex align-items-start mb-2"><span class="icon-check_circle mr-2 text-muted"></span><span>{{object.summary}}</span></li>
+              </ul>
+            </div>
+
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="mb-5">
+              <figure class="mb-5"><img src="{% static 'app/images/job_single_img_1.jpg' %}" alt="Image" class="img-fluid rounded"></figure>
+              <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Job Description</h3>
+              <p>{{object.description}}</p>
+            </div>
+
+            <div class="mb-5">
+              <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-rocket mr-3"></span>Requirements</h3>
+              <ul class="list-unstyled m-0 p-0">
+                <li class="d-flex align-items-start mb-2"><span class="icon-check_circle mr-2 text-muted"></span><span>{{object.requirements}}</span></li>
+              </ul>
+            </div>
+
+            <div class="mb-5">
+              <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-turned_in mr-3"></span>Duties</h3>
+              <ul class="list-unstyled m-0 p-0">
+                <li class="d-flex align-items-start mb-2"><span class="icon-check_circle mr-2 text-muted"></span><span>{{object.duties}}</span></li>
+              </ul>
+            </div>
+
+            <div class="row mb-5">
+              <div class="col-6">
+                <a href="#" class="btn btn-block btn-light btn-md"><span class="icon-heart-o mr-2 text-danger"></span>Save Job</a>
+              </div>
+              <div class="col-6">
+                <a href="{{object.urlLink}}" class="btn btn-block btn-primary btn-md">Apply Now</a>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-lg-4">
+            <div class="bg-light p-3 border rounded mb-4">
+              <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Job Summary</h3>
+              <ul class="list-unstyled pl-3 mb-0">
+                <li class="mb-2"><strong class="text-black">Published on:</strong> April 14, 2019</li>
+                <li class="mb-2"><strong class="text-black">Category: </strong>{{object.category}}</li>
+                <li class="mb-2"><strong class="text-black">Employment Status: </strong>{{object.type}}</li>
+                <li class="mb-2"><strong class="text-black">Experience: </strong>{{object.experience}}</li>
+                <li class="mb-2"><strong class="text-black">Job Location: </strong>{{object.location}}</li>
+                <li class="mb-2"><strong class="text-black">Salary: </strong>{{object.salary}}</li>
+                <li class="mb-2"><strong class="text-black">Gender: </strong> Any</li>
+                <li class="mb-2"><strong class="text-black">Application Deadline: </strong> {{object.closing_date}}</li>
+              </ul>
+            </div>
+
+            <div class="bg-light p-3 border rounded">
+              <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Share</h3>
+              <div class="px-3">
+                <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-facebook"></span></a>
+                <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-twitter"></span></a>
+                <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-linkedin"></span></a>
+                <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-pinterest"></span></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+{% endblock %}
+

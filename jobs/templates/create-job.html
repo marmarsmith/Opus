@@ -1,0 +1,184 @@
+{% extends 'layout1.html' %}
+{% load static %}
+
+{% block meta %}
+
+<title>Register</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="author" content="Marcel Smith" />
+
+{% endblock %}
+
+
+{% block body %}
+<br>
+<br>
+        <div class="home-center">
+                    <div class="home-desc-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <div class="login bg-white shadow rounded p-4">
+
+                                        <div class="text-center">
+                                            <h4 class="mb-4">Creat a Job</h4>
+                                        </div>
+
+
+                                        <form class="login" method="POST">
+
+                                            {% csrf_token %}
+
+                                            <div class="row">
+
+                                                <div class="col-md-12">
+                                                    <div class="form-group position-relative">
+                                                        <label>Job Title <span class="text-danger">*</span></label>
+                                                        {{form.title}}
+                                                    </div>
+                                                    {% if form.title.errors %}
+                                                    {% for error in form.title.errors %}
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ error|escape }}</strong>
+                                                        </div>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group position-relative">
+                                                        <label>Location <span class="text-danger">*</span></label>
+                                                        {{form.location}}
+                                                    </div>
+                                                    {% if form.location.errors %}
+                                                    {% for error in form.location.errors %}
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ error|escape }}</strong>
+                                                        </div>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group position-relative">
+                                                        <label>Salary <span class="text-danger">*</span></label>
+                                                        {{form.salary}}
+                                                    </div>
+                                                    {% if form.salary.errors %}
+                                                    {% for error in form.salary.errors %}
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ error|escape }}</strong>
+                                                        </div>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group position-relative">
+                                                        <label>Job Type <span class="text-danger">*</span></label>
+                                                        {{form.type}}
+                                                    </div>
+                                                    {% if form.type.errors %}
+                                                    {% for error in form.type.errors %}
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ error|escape }}</strong>
+                                                        </div>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group position-relative">
+                                                        <label>Required Experience <span class="text-danger">*</span></label>
+                                                        {{form.experience}}
+                                                    </div>
+                                                    {% if form.experience.errors %}
+                                                    {% for error in form.experience.errors %}
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ error|escape }}</strong>
+                                                        </div>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group position-relative">
+                                                        <label>Summary <span class="text-danger">*</span></label>
+                                                        {{form.summary}}
+                                                    </div>
+                                                    {% if form.summary.errors %}
+                                                    {% for error in form.summary.errors %}
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ error|escape }}</strong>
+                                                        </div>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="form-group position-relative">
+                                                        <label>Description <span class="text-danger">*</span></label>
+                                                        {{form.description}}
+                                                    </div>
+                                                    {% if form.description.errors %}
+                                                    {% for error in form.description.errors %}
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ error|escape }}</strong>
+                                                        </div>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="form-group position-relative">
+                                                        <label>Requirements <span class="text-danger">*</span></label>
+                                                        {{form.requirements}}
+                                                    </div>
+                                                    {% if form.requirements.errors %}
+                                                    {% for error in form.requirements.errors %}
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ error|escape }}</strong>
+                                                        </div>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="form-group position-relative">
+                                                        <label>Duties <span class="text-danger">*</span></label>
+                                                        {{form.duties}}
+                                                    </div>
+                                                    {% if form.duties.errors %}
+                                                    {% for error in form.duties.errors %}
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ error|escape }}</strong>
+                                                        </div>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="form-group position-relative">
+                                                        <label>Duties <span class="text-danger">*</span></label>
+                                                        {{form.owner}}
+                                                    </div>
+                                                    {% if form.duties.errors %}
+                                                    {% for error in form.duties.errors %}
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ error|escape }}</strong>
+                                                        </div>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                </div>
+
+
+                                                <div class="col-md-12">
+                                                    <button class="btn btn-primary w-100" type="submit">Create Job</button>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+{% endblock %}
